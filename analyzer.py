@@ -6,3 +6,7 @@ def get_sensitive_port_traffic(data):
     sensitive_ports = ["22","23", "3389"]
     sensitive_traffic = [row for row in data if row[3] in sensitive_ports]
     return sensitive_traffic
+
+def get_large_packets(data):
+    large_packets = [row for row in data if int(row[5]) > 5000]
+    return large_packets
