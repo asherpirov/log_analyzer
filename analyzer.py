@@ -10,3 +10,7 @@ def get_sensitive_port_traffic(data):
 def get_large_packets(data):
     large_packets = [row for row in data if int(row[5]) > 5000]
     return large_packets
+
+def tag_traffic_size(data):
+    tags = ["LARGE" if int(row[5]) > 5000 else "NORMAL" for row in data]
+    return tags
