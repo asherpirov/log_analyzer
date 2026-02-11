@@ -22,3 +22,6 @@ def tag_traffic_size(data):
 def count_requests_per_ip(data):
     all_ips = [row[1] for row in data]
     return Counter(all_ips)
+
+def port_to_protocol(data):
+    return {row[3] : row[4] for row in data}
