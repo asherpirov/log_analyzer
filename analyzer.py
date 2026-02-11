@@ -1,3 +1,7 @@
+import collections
+from typing import Counter
+
+
 def get_external_ips(data):
     external_ips = [row[1] for row in data if not row[1].startswith(("192.168.", "10."))]
     return external_ips
@@ -14,3 +18,7 @@ def get_large_packets(data):
 def tag_traffic_size(data):
     tags = ["LARGE" if int(row[5]) > 5000 else "NORMAL" for row in data]
     return tags
+
+def count_requests_per_ip(data):
+    all_ips = [row[1] for row in data]
+    return Counter(all_ips)
